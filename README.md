@@ -9,7 +9,7 @@ Esta aplicación es un sistema de gestión de tareas desarrollado utilizando Ang
 - **Creación de Tareas**: Los usuarios pueden añadir nuevas tareas con detalles como título, descripción, fecha de vencimiento, prioridad y etiquetas.
 - **Visualización y Edición de Tareas**: Visualiza tareas en una lista, con capacidad para editar cualquier detalle.
 - **Eliminación de Tareas**: Permite a los usuarios eliminar tareas que ya no sean necesarias.
-- **Filtrado y Ordenación**: Los usuarios pueden filtrar las tareas por título, estado, fecha de vencimiento y prioridad, así como ordenarlas según estos mismos criterios.
+- **Filtrado y Ordenación**: Los usuarios pueden filtrar las tareas por estado, fecha de vencimiento y prioridad, así como ordenarlas según estos mismos criterios.
 
 ## Interfaz de Usuario
 
