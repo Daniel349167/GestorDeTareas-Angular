@@ -1,0 +1,30 @@
+/* task-list.component.css */
+.priority-low {
+  background-color: #d4edda; /* Verde suave para prioridad baja */
+}
+  
+.priority-medium {
+  background-color: #ffeeba; /* Un color amarillo claro para prioridad media */
+}
+
+.priority-high {
+  background-color: #f5c6cb; /* Un color rojo claro para prioridad alta */
+}
+
+
+/* task-list.component.css */
+.btn-sort-date {
+  background-color: #17a2b8; /* Bootstrap's info color */
+  color: white;
+}
+
+.btn-sort-priority {
+  background-color: #28a745; /* Bootstrap's success color */
+  color: white;
+}
+
+/* Añade :hover para los efectos al pasar el ratón */
+.btn-sort-date:hover,
+.btn-sort-priority:hover {
+  filter: brightness(90%);
+}

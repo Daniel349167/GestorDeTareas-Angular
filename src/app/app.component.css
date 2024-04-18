@@ -1,0 +1,5 @@
+.nav-link.active {
+    font-weight: bold;
+    color: #4A90E2; /* Un azul más suave y moderno */
+    background-color: var(--bs-light); /* opcional, si deseas un fondo para el enlace activo */
+  }

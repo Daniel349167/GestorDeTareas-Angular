@@ -1,0 +1,38 @@
+<!-- task-edit.component.html -->
+<div class="container my-5">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="card shadow p-4">
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="title" class="form-label">Título de la tarea</label>
+            <input formControlName="title" id="title" class="form-control" placeholder="Escribe un título" type="text" required>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Descripción</label>
+            <textarea formControlName="description" id="description" class="form-control" placeholder="Descripción de la tarea"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="dueDate" class="form-label">Fecha de vencimiento</label>
+            <input formControlName="dueDate" id="dueDate" class="form-control" type="date" required>
+          </div>
+          <div class="mb-3">
+            <label for="priority" class="form-label">Prioridad</label>
+            <select formControlName="priority" id="priority" class="form-select">
+              <option value="low">Baja</option>
+              <option value="medium">Media</option>
+              <option value="high">Alta</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="tags" class="form-label">Etiquetas</label>
+            <input formControlName="tags" id="tags" class="form-control" placeholder="Etiquetas, separadas por comas" type="text">
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-warning" [disabled]="!taskForm.valid">Actualizar Tarea</button>
+          </div>          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

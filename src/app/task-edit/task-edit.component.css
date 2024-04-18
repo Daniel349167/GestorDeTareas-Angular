@@ -1,0 +1,9 @@
+.btn-custom {
+    background-color: #007bff; /* Un azul similar al de Bootstrap */
+    color: white;
+  }
+  
+  .btn-custom:disabled {
+    background-color: #cccccc;
+  }
+  

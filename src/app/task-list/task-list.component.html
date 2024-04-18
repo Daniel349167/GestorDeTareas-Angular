@@ -1,0 +1,56 @@
+<!-- task-list.component.html -->
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <!-- Botones de ordenación -->
+      <div class="mb-3 text-end">
+        <button class="btn btn-sort-date btn-sm me-2" (click)="sortByDueDate()">Ordenar por Fecha</button>
+        <button class="btn btn-sort-priority btn-sm" (click)="sortByPriority()">Ordenar por Prioridad</button>
+      </div>      
+
+      <!-- Formulario de filtros -->
+      <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="mb-3">
+        <div class="d-flex justify-content-between">
+          <input formControlName="title" class="form-control me-2" placeholder="Filtrar por título">
+          <select formControlName="priority" class="form-select me-2">
+            <option value="">Prioridad</option>
+            <option value="low">Baja</option>
+            <option value="medium">Media</option>
+            <option value="high">Alta</option>
+          </select>
+          <input formControlName="dueDate" class="form-control me-2" type="date">
+          <input formControlName="tags" class="form-control me-2" placeholder="Filtrar por etiquetas">
+          <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+      </form>
+
+      <!-- Lista de tareas -->
+      <ul class="list-group mt-3">
+        <li class="list-group-item shadow-sm p-3 mb-3 rounded"
+            *ngFor="let task of tasks$ | async"
+            [ngClass]="{
+              'priority-low': task.priority === 'low',
+              'priority-medium': task.priority === 'medium',
+              'priority-high': task.priority === 'high'
+            }">
+          <div class="row">
+            <div class="col-md-9">
+              <h5 class="mb-1">{{ task.title }}</h5>
+              <small class="d-block text-muted">Vence: {{ task.dueDate | date: 'mediumDate' }}</small>
+              <small class="d-block text-muted">Estado: {{ task.status }}</small>
+              <small class="text-muted">Prioridad: {{ task.priority | titlecase }}</small>
+              <div class="mt-2">
+                <span class="badge bg-secondary me-1" *ngFor="let tag of task.tags">{{ tag }}</span>
+              </div>
+            </div>
+            <div class="col-md-3 text-md-end mt-3 mt-md-0">
+              <button class="btn btn-danger btn-sm me-2" (click)="deleteTask(task.id)">Eliminar</button>
+              <a class="btn btn-sm btn-info" [routerLink]="['/tasks/edit', task.id]">Editar</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

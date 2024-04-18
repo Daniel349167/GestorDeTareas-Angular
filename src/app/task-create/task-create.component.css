@@ -1,0 +1,10 @@
+.btn-custom {
+    background-color: #17a2b8; /* Azul claro, conocido como azul "info" en Bootstrap */
+    border-color: #17a2b8;
+  }
+  
+  .btn-custom:hover {
+    background-color: #138496; /* Un azul un poco más oscuro para el hover */
+    border-color: #117a8b;
+  }
+  
