@@ -54,12 +54,23 @@ export class TaskService {
     }
   }
 
+  completeTask(id: number): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const tasks = this.tasksSubject.value;
+      const index = tasks.findIndex(t => t.id === id);
+      if (index !== -1) {
+        tasks[index].status = 'completed';
+        this.tasksSubject.next(tasks);
+        localStorage.setItem(this.localStorageKey, JSON.stringify(tasks));
+      }
+    }
+  }
+
   getTaskById(id: number): Observable<Task | undefined> {
     return this.tasksSubject.asObservable().pipe(
       map(tasks => tasks.find(task => task.id === id))
     );
   }
-  
 
   filterTasks(criteria: { status?: 'pending' | 'completed'; dueDate?: Date; priority?: string; title?: string; tags?: string[] }): Observable<Task[]> {
     return this.tasksSubject.asObservable().pipe(
@@ -80,13 +91,8 @@ export class TaskService {
         if (criteria.tags && task.tags) {
           matchesCriteria &&= task.tags.some(tag => criteria.tags?.includes(tag) ?? false);
         }
-        
-        
         return matchesCriteria;
       }))
     );
   }
-
-  
-  
 }

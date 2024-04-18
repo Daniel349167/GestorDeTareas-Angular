@@ -28,9 +28,10 @@ export class TaskListComponent implements OnInit {
       title: new FormControl(''),
       priority: new FormControl(''),
       dueDate: new FormControl(''),
-      tags: new FormControl('')
+      tags: new FormControl(''),
+      status: new FormControl('')
     });
-    this.tasks$ = this.taskService.getTasks(); // Esto asegura que `tasks$` se inicializa al cargar el componente
+    this.tasks$ = this.taskService.getTasks();
   }
 
   applyFilters(): void {
@@ -40,8 +41,12 @@ export class TaskListComponent implements OnInit {
 
   deleteTask(id: number): void {
     this.taskService.deleteTask(id);
-    // Vuelve a aplicar los filtros después de eliminar una tarea para actualizar la lista
     this.applyFilters(); 
+  }
+
+  completeTask(id: number): void {
+    this.taskService.completeTask(id);
+    this.applyFilters();
   }
 
   sortByDueDate(): void {

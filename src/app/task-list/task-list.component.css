@@ -1,13 +1,17 @@
 /* task-list.component.css */
-.priority-low {
-  background-color: #d4edda; /* Verde suave para prioridad baja */
+.completed-task {
+  background-color: #c3e6cb; /* Verde claro para tareas completadas */
+}
+
+.priority-low:not(.completed-task) {
+  background-color: #b8daff; /* Celeste para prioridad baja que no está completada */
 }
   
-.priority-medium {
+.priority-medium:not(.completed-task) {
   background-color: #ffeeba; /* Un color amarillo claro para prioridad media */
 }
 
-.priority-high {
+.priority-high:not(.completed-task) {
   background-color: #f5c6cb; /* Un color rojo claro para prioridad alta */
 }
 
@@ -28,3 +32,4 @@
 .btn-sort-priority:hover {
   filter: brightness(90%);
 }
+
