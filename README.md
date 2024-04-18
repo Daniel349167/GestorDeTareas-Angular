@@ -27,7 +27,7 @@ La interfaz es intuitiva y fácil de usar, diseñada para ser responsive y funci
 ## Capturas de Pantalla
 
 ### Ordenar, Listar, Filtrar, Eliminar
-![Ordenar, Listar, Filtrar, Eliminar](https://github.com/Daniel349167/GestorDeTareas-Angular/assets/62466867/5e41ca92-d68c-4a1d-99ee-d041670abe85)
+![image](https://github.com/Daniel349167/GestorDeTareas-Angular/assets/62466867/723da795-9f6f-4c36-92e0-4bf84fb46a3b)
 
 ### Crear
 ![Crear](https://github.com/Daniel349167/GestorDeTareas-Angular/assets/62466867/7f86b8e9-1c4e-4ae4-9b75-c4d17666bd9a)
