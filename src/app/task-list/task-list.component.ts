@@ -57,8 +57,19 @@ export class TaskListComponent implements OnInit {
 
   sortByPriority(): void {
     const priorityOrder: { [key: string]: number } = { 'high': 1, 'medium': 2, 'low': 3 };
+  
     this.tasks$ = this.tasks$.pipe(
-      map(tasks => [...tasks].sort((a, b) => (priorityOrder[a.priority] ?? 0) - (priorityOrder[b.priority] ?? 0)))
+      map(tasks => [...tasks].sort((a, b) => {
+        // Ordenar primero por estado y luego por prioridad
+        if (a.status === 'completed' && b.status !== 'completed') {
+          return 1; // a va después de b
+        } else if (a.status !== 'completed' && b.status === 'completed') {
+          return -1; // a va antes que b
+        } else {
+          return (priorityOrder[a.priority] ?? 0) - (priorityOrder[b.priority] ?? 0);
+        }
+      }))
     );
   }
+  
 }
